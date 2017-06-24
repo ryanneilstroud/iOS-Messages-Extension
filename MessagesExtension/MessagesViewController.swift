@@ -9,7 +9,7 @@
 import UIKit
 import Messages
 
-class MessagesViewController: MSMessagesAppViewController {
+class MessagesViewController: MSMessagesAppViewController, CompactDelegate, ExpandedDelegate {
     let compactId:String = "compact"
     let expandedId:String = "expanded"
     
@@ -73,6 +73,12 @@ class MessagesViewController: MSMessagesAppViewController {
         let identifier = (presentationStyle == .compact) ? compactId : expandedId
         let controller = storyboard!.instantiateViewController(withIdentifier: identifier)
         
+        if let compact = controller as? CompactViewController {
+            compact.delegate = self
+        } else if let expanded = controller as? ExpandedViewController {
+            expanded.delegate = self
+        }
+        
         for child in childViewControllers {
             child.willMove(toParentViewController: nil)
             child.view.removeFromSuperview()
@@ -98,6 +104,22 @@ class MessagesViewController: MSMessagesAppViewController {
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
         presentViewControllerWith(presentationStyle: presentationStyle)
+    }
+    
+    func newNote() {
+        print("new note")
+    }
+    
+    func sendMessage(title: String, note: String) {
+        print("send message!")
+    }
+    
+    func getMessageURL(title: String, note: String) -> URL {
+        var components = URLComponents()
+        let queryTitle = URLQueryItem(name: "title", value: title)
+        let queryNote = URLQueryItem(name: "note", value: note)
+        components.queryItems = [queryTitle, queryNote]
+        return components.url!
     }
 
 }

@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="-269" y="103"/>
         </scene>
-        <!--View Controler-->
+        <!--Expanded View Controller-->
         <scene sceneID="KYt-gN-aeq">
             <objects>
-                <viewController storyboardIdentifier="expanded" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c2a-tv-f00" customClass="UIViewControler" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="expanded" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c2a-tv-f00" customClass="ExpandedViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NSW-1D-v0E"/>
                         <viewControllerLayoutGuide type="bottom" id="8nY-Y5-QOt"/>
@@ -81,6 +81,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendNote:" destination="c2a-tv-f00" eventType="touchUpInside" id="0aI-X0-mDF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -99,15 +102,19 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="noteTextView" destination="aAT-gu-ax6" id="eEe-S3-sSG"/>
+                        <outlet property="titleTextField" destination="kl9-B2-W3u" id="OUh-Kk-3da"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcS-I7-Nkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="920" y="102.54872563718142"/>
         </scene>
-        <!--View Controller-->
+        <!--Compact View Controller-->
         <scene sceneID="4vJ-oz-S3j">
             <objects>
-                <viewController storyboardIdentifier="compact" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jib-Kv-DJs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="compact" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jib-Kv-DJs" customClass="CompactViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c8U-ft-chA"/>
                         <viewControllerLayoutGuide type="bottom" id="EoX-se-qqg"/>
@@ -136,6 +143,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createNewNote:" destination="jib-Kv-DJs" eventType="touchUpInside" id="qQ8-Vu-b2S"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

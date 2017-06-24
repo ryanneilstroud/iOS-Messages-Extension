@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62592E651EFE8154000F18F3 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62592E641EFE8154000F18F3 /* CompactViewController.swift */; };
+		62592E671EFE8166000F18F3 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62592E661EFE8166000F18F3 /* ExpandedViewController.swift */; };
 		62AB2A9B1EFAC6CF00EB483E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62AB2A9A1EFAC6CF00EB483E /* Assets.xcassets */; };
 		62AB2AA21EFAC6CF00EB483E /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 62AB2AA11EFAC6CF00EB483E /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		62AB2AA71EFAC6CF00EB483E /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AB2AA61EFAC6CF00EB483E /* Messages.framework */; };
@@ -40,6 +42,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		62592E641EFE8154000F18F3 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
+		62592E661EFE8166000F18F3 /* ExpandedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
 		62AB2A971EFAC6CF00EB483E /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AB2A9A1EFAC6CF00EB483E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62AB2A9C1EFAC6CF00EB483E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				62AB2AA91EFAC6CF00EB483E /* MessagesViewController.swift */,
+				62592E641EFE8154000F18F3 /* CompactViewController.swift */,
+				62592E661EFE8166000F18F3 /* ExpandedViewController.swift */,
 				62AB2AAB1EFAC6CF00EB483E /* MainInterface.storyboard */,
 				62AB2AAE1EFAC6CF00EB483E /* Assets.xcassets */,
 				62AB2AB01EFAC6CF00EB483E /* Info.plist */,
@@ -211,6 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62592E671EFE8166000F18F3 /* ExpandedViewController.swift in Sources */,
+				62592E651EFE8154000F18F3 /* CompactViewController.swift in Sources */,
 				62AB2AAA1EFAC6CF00EB483E /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +409,7 @@
 				62AB2AB51EFAC6CF00EB483E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62AB2AB71EFAC6CF00EB483E /* Build configuration list for PBXNativeTarget "Notes" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +418,7 @@
 				62AB2AB91EFAC6CF00EB483E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
