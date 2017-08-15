@@ -1,6 +1,6 @@
-# iOS-Messages-Extension
+# iOS Messages Extension
 
-An iOS Messages extension that allows users to edit the same note
+An iOS Messages extension that allows users to edit the same note.
 
 ## Features
 
