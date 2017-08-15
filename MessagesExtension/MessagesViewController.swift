@@ -124,6 +124,10 @@ class MessagesViewController: MSMessagesAppViewController, CompactDelegate, Expa
         let layout = MSMessageTemplateLayout()
         layout.caption = note
         layout.subcaption = title
+        
+        let user: String = self.activeConversation?.localParticipantIdentifier.uuidString ?? "Unknown"
+        layout.trailingSubcaption = "Edited by $\(user)"
+        
         message.layout = layout
         message.url = getMessageURL(title: title, note: note)
         self.activeConversation?.insert(message, completionHandler: { (e: Error?) in
@@ -132,11 +136,20 @@ class MessagesViewController: MSMessagesAppViewController, CompactDelegate, Expa
         self.dismiss()
     }
     
+    func saveMessage(title: String, note: String) {
+        let url = getMessageURL(title: title, note: note)
+        self.extensionContext?.open(url, completionHandler: { (success: Bool) in
+            print("open url")
+        })
+    }
+    
     func getMessageURL(title: String, note: String) -> URL {
         var components = URLComponents()
         let queryTitle = URLQueryItem(name: "title", value: title)
         let queryNote = URLQueryItem(name: "note", value: note)
         components.queryItems = [queryTitle, queryNote]
+        components.scheme = "notes"
+        components.host = "openApp"
         return components.url!
     }
 

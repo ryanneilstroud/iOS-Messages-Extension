@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -55,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kl9-B2-W3u">
-                                <rect key="frame" x="16" y="16" width="222" height="26"/>
+                                <rect key="frame" x="16" y="16" width="163.5" height="26"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -68,7 +68,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m69-KU-6ei">
-                                <rect key="frame" x="254" y="16" width="50" height="30"/>
+                                <rect key="frame" x="195.5" y="16" width="50" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5kI-nR-Wt9"/>
@@ -85,13 +85,34 @@
                                     <action selector="sendNote:" destination="c2a-tv-f00" eventType="touchUpInside" id="0aI-X0-mDF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7W-HC-V3E">
+                                <rect key="frame" x="254" y="16" width="50" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="mUA-bV-x7K"/>
+                                    <constraint firstAttribute="width" constant="50" id="wE2-Qv-kH4"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Save"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveNote:" destination="c2a-tv-f00" eventType="touchUpInside" id="qTI-cA-Q4J"/>
+                                    <action selector="sendNote:" destination="c2a-tv-f00" eventType="touchUpInside" id="ie2-ry-bpC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="m7W-HC-V3E" firstAttribute="leading" secondItem="m69-KU-6ei" secondAttribute="trailing" constant="8.5" id="3z3-Fw-4kb"/>
                             <constraint firstItem="m69-KU-6ei" firstAttribute="leading" secondItem="kl9-B2-W3u" secondAttribute="trailing" constant="16" id="94y-0k-xLL"/>
-                            <constraint firstAttribute="trailing" secondItem="m69-KU-6ei" secondAttribute="trailing" constant="16" id="FQk-jH-Exc"/>
+                            <constraint firstAttribute="trailing" secondItem="m7W-HC-V3E" secondAttribute="trailing" constant="16" id="DOz-f1-hlK"/>
                             <constraint firstItem="kl9-B2-W3u" firstAttribute="top" secondItem="NSW-1D-v0E" secondAttribute="bottom" constant="16" id="OsX-Or-O5B"/>
                             <constraint firstItem="m69-KU-6ei" firstAttribute="top" secondItem="NSW-1D-v0E" secondAttribute="bottom" constant="16" id="Pv3-XA-VMf"/>
+                            <constraint firstItem="m7W-HC-V3E" firstAttribute="top" secondItem="NSW-1D-v0E" secondAttribute="bottom" constant="16" id="RLK-vo-lg3"/>
                             <constraint firstAttribute="trailing" secondItem="aAT-gu-ax6" secondAttribute="trailing" constant="16" id="XVt-uj-32f"/>
                             <constraint firstItem="aAT-gu-ax6" firstAttribute="leading" secondItem="Z7r-9S-zAf" secondAttribute="leading" constant="16" id="Zb0-TM-nqx"/>
                             <constraint firstItem="8nY-Y5-QOt" firstAttribute="top" secondItem="aAT-gu-ax6" secondAttribute="bottom" constant="16" id="nz4-Bm-RU8"/>

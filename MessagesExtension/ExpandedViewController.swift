@@ -10,6 +10,7 @@ import UIKit
 
 protocol ExpandedDelegate {
     func sendMessage(title: String, note: String)
+    func saveMessage(title: String, note: String)
 }
 
 class ExpandedViewController: UIViewController {
@@ -36,6 +37,10 @@ class ExpandedViewController: UIViewController {
     
     @IBAction func sendNote(_ sender: UIButton) {
         delegate?.sendMessage(title: titleTextField.text!, note: noteTextView.text!)
+    }
+    
+    @IBAction func saveNote(_ sender: UIButton) {
+        delegate?.saveMessage(title: titleTextField.text!, note: noteTextView.text!)
     }
 
     
