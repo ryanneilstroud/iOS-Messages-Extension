@@ -10,8 +10,9 @@ import UIKit
 import Messages
 
 class MessagesViewController: MSMessagesAppViewController, CompactDelegate, ExpandedDelegate {
-    let compactId:String = "compact"
-    let expandedId:String = "expanded"
+    let compactId: String = "compact"
+    let expandedId: String = "expanded"
+    var shouldClear: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,12 +74,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactDelegate, Expa
         let identifier = (presentationStyle == .compact) ? compactId : expandedId
         let controller = storyboard!.instantiateViewController(withIdentifier: identifier)
         
-        if let compact = controller as? CompactViewController {
-            compact.delegate = self
-        } else if let expanded = controller as? ExpandedViewController {
-            expanded.delegate = self
-        }
-        
         for child in childViewControllers {
             child.willMove(toParentViewController: nil)
             child.view.removeFromSuperview()
@@ -97,6 +92,18 @@ class MessagesViewController: MSMessagesAppViewController, CompactDelegate, Expa
         controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         controller.didMove(toParentViewController: self)
+        
+        if let compact = controller as? CompactViewController {
+            compact.delegate = self
+        } else if let expanded = controller as? ExpandedViewController {
+            expanded.delegate = self
+            if shouldClear {
+                expanded.clearText()
+                shouldClear = false
+            } else if let url = self.activeConversation?.selectedMessage?.url {
+                expanded.didOpen(from: url)
+            }
+        }
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
@@ -107,11 +114,22 @@ class MessagesViewController: MSMessagesAppViewController, CompactDelegate, Expa
     }
     
     func newNote() {
-        print("new note")
+        shouldClear = true
+        self.requestPresentationStyle(.expanded)
     }
     
     func sendMessage(title: String, note: String) {
-        print("send message!")
+        let session = self.activeConversation?.selectedMessage?.session ?? MSSession()
+        let message = MSMessage(session: session)
+        let layout = MSMessageTemplateLayout()
+        layout.caption = note
+        layout.subcaption = title
+        message.layout = layout
+        message.url = getMessageURL(title: title, note: note)
+        self.activeConversation?.insert(message, completionHandler: { (e: Error?) in
+            print("complete!")
+        })
+        self.dismiss()
     }
     
     func getMessageURL(title: String, note: String) -> URL {

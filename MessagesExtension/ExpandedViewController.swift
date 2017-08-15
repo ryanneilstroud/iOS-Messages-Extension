@@ -29,10 +29,27 @@ class ExpandedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func clearText() {
+        titleTextField.text = ""
+        noteTextView.text = "Note"
+    }
+    
     @IBAction func sendNote(_ sender: UIButton) {
         delegate?.sendMessage(title: titleTextField.text!, note: noteTextView.text!)
     }
 
+    
+    func didOpen(from url: URL) {
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        for item in components!.queryItems! {
+            if item.name == "title" {
+                titleTextField.text = item.value
+            } else if item.name == "note" {
+                noteTextView.text = item.value
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
