@@ -101,7 +101,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveNote:" destination="c2a-tv-f00" eventType="touchUpInside" id="qTI-cA-Q4J"/>
-                                    <action selector="sendNote:" destination="c2a-tv-f00" eventType="touchUpInside" id="ie2-ry-bpC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,8 +123,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
-                        <outlet property="noteTextView" destination="aAT-gu-ax6" id="eEe-S3-sSG"/>
-                        <outlet property="titleTextField" destination="kl9-B2-W3u" id="OUh-Kk-3da"/>
+                        <outlet property="noteTextView" destination="aAT-gu-ax6" id="7mu-ck-uMi"/>
+                        <outlet property="titleTextField" destination="kl9-B2-W3u" id="Fzy-Gm-XuG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcS-I7-Nkg" userLabel="First Responder" sceneMemberID="firstResponder"/>

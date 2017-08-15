@@ -122,8 +122,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactDelegate, Expa
         let session = self.activeConversation?.selectedMessage?.session ?? MSSession()
         let message = MSMessage(session: session)
         let layout = MSMessageTemplateLayout()
-        layout.caption = note
-        layout.subcaption = title
+        layout.caption = title
+        layout.subcaption = note
         
         let user: String = self.activeConversation?.localParticipantIdentifier.uuidString ?? "Unknown"
         layout.trailingSubcaption = "Edited by $\(user)"
@@ -140,6 +140,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactDelegate, Expa
         let url = getMessageURL(title: title, note: note)
         self.extensionContext?.open(url, completionHandler: { (success: Bool) in
             print("open url")
+            print("this feature is not full implemented")
         })
     }
     
@@ -148,7 +149,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactDelegate, Expa
         let queryTitle = URLQueryItem(name: "title", value: title)
         let queryNote = URLQueryItem(name: "note", value: note)
         components.queryItems = [queryTitle, queryNote]
-        components.scheme = "notes"
+        // This causes weird behavior where the active conversation message is nil
+        // components.scheme = "mynotes"
         components.host = "openApp"
         return components.url!
     }
